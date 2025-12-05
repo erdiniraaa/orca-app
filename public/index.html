@@ -102,7 +102,7 @@
         .then(res => res.json())
         .then(data => {
           document.getElementById("msg").textContent = data.message;
-          document.getElementById("purpose").textContent = data.purpose || data.description;
+          document.getElementById("purpose").textContent = data.purpose 
           document.getElementById("time").textContent = data.serverTime;
         });
     }
@@ -112,3 +112,4 @@
 
 </body>
 </html>
+
