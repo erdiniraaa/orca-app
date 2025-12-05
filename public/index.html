@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>ORCA Info App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #0ea5e9, #38bdf8);
+      text-align: center;
+      padding-top: 70px;
+      color: white;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      width: 400px;
+      margin: auto;
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 ORCA Info App</h1>
+  <div class="card">
+    <h2 id="msg">Loading...</h2>
+    <p id="desc"></p>
+    <p id="purpose"></p>
+    <p id="time"></p>
+  </div>
+
+  <script>
+    fetch("/api/info")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("msg").textContent = data.message;
+        document.getElementById("desc").textContent = data.description;
+        document.getElementById("purpose").textContent = data.purpose;
+        document.getElementById("time").textContent = "Server Time: " + data.serverTime;
+      });
+  </script>
+
+</body>
+</html>
